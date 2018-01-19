@@ -44,16 +44,19 @@ class RegModel(nn.Module):
     def __init__(self, inp_size, h1_size=512, h2_size=1024, do=0.9):
         super(RegModel, self).__init__()
         self.h1 = nn.Linear(inp_size, h1_size)
-        self.bn = nn.BatchNorm1d(h1_size)
+        self.bn1 = nn.BatchNorm1d(h1_size)
         self.do1 = nn.Dropout(p=do)
         
-        #self.h2 = nn.Linear(h1_size, h2_size)
-        #self.do2 = nn.Dropout(p=do)
-        self.out = nn.Linear(h1_size, 1)
+        self.h2 = nn.Linear(h1_size, h2_size)
+        self.bn2 = nn.BatchNorm1d(h2_size)
+        self.do2 = nn.Dropout(p=do)
+        self.out = nn.Linear(h2_size, 1)
             
     def forward(self, x):
         x = F.relu(self.h1(x))
-        x = self.bn(x)
+        x = self.bn1(x)
         x = self.do1(x)
-        #x = self.do2(F.relu(self.h2(x)))
+        x = F.relu(self.h2(x))
+        x = self.bn2(x)
+        x = self.do2(x)
         return self.out(x)
