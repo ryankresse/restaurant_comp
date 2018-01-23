@@ -23,7 +23,7 @@ class EmbedModel(nn.Module):
     def forward(self, x):
         out = []
         for i in range(x.size()[1]):
-            #print(to_embed[i])
+            #print(self.embs[i])
             out.append(self.embs[i](x[:, i]))
         return self.do(torch.cat(out, 1))
         
