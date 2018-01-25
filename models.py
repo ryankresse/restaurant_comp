@@ -1,14 +1,11 @@
 import torch
-import re, pickle, collections, numpy as np, keras, math, operator, pdb
+import re, pickle, collections, numpy as np, math, operator, pdb
 import matplotlib.pyplot as plt
 import torch, torch.nn as nn
 from torch.autograd import Variable
 from torch import optim
-from torchvision.models import inception_v3
 import torch.nn.functional as F
 from keras.preprocessing.sequence import pad_sequences
-from torchvision import transforms
-from torchvision.datasets import ImageFolder
 from torch.autograd import Variable
 import pdb
 

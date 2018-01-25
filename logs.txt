@@ -1,0 +1,62 @@
+DOESN'T HELP:
+Prefecture
+===============================================
+
+
+
+Epoch 11 tr loss: 0.492602407932, val loss: 0.516155540943
+
+<bound method EmbedModel.children of EmbedModel (
+  (embed_0): Embedding(7, 6)
+  (embed_1): Embedding(2, 2)
+  (embed_2): Embedding(12, 6)
+  (embed_3): Embedding(2, 2)
+  (embed_4): Embedding(2, 2)
+  (embed_5): Embedding(14, 12)
+  (embed_6): Embedding(103, 24)
+  (embed_7): Embedding(829, 24)
+  (do): Dropout (p = 0.0)
+)>
+<bound method ContModel.children of ContModel (
+  (linear): Linear (13 -> 128)
+  (bn): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True)
+  (do): Dropout (p = 0.0)
+)>
+<bound method RegModel.children of RegModel (
+  (h1): Linear (206 -> 2048)
+  (bn1): BatchNorm1d(2048, eps=1e-05, momentum=0.1, affine=True)
+  (do1): Dropout (p = 0.0)
+  (h2): Linear (2048 -> 2048)
+  (bn2): BatchNorm1d(2048, eps=1e-05, momentum=0.1, affine=True)
+  (do2): Dropout (p = 0.0)
+  (out): Linear (2048 -> 1)
+)>
+4655239
+
+to_embed = [('dow',6),  
+            ('year',2), 
+            ('month', 6), 
+            ('holiday_flg',2), 
+            ('wkend_flg',2), 
+            ('air_genre_name', 12), 
+            ('air_area_name', 24),
+           ('air_store_id', 24)]
+to_embed_cols = [c[0] for c in to_embed]
+
+cont_cols = ['min_visitors',
+             'var_max_lat', 'var_max_long',
+       'mean_visitors', 'median_visitors', 'max_visitors',
+       'count_observations', 'latitude',
+       'longitude', 'reserve_datetime_diff_x', 'reserve_visitors_x',
+       'reserve_datetime_diff_y', 'reserve_visitors_y']
+
+
+
+=====================================================================================================================
+
+
+
+
+
+
+
